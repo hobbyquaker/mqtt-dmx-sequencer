@@ -1,0 +1,42 @@
+{
+  "name": "mqtt-dmx-sequencer",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian 'hobbyquaker' Raff <hq@ccu.io>",
+  "license": "MIT",
+  "dependencies": {
+    "artnet": "^1.0.1",
+    "async": "^1.4.1",
+    "mqtt": "^1.3.5",
+    "yalm": "^1.0.1",
+    "yargs": "^3.18.0"
+  },
+  "bin": {
+    "mqtt-dmx-sequencer": "index.js"
+  },
+  "preferGlobal": true,
+  "description": "Control DMX devices via Art-Net by MQTT",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hobbyquaker/mqtt-dmx-sequencer"
+  },
+  "keywords": [
+    "artnet",
+    "dmx",
+    "mqtt",
+    "sequencer",
+    "stage",
+    "lighting",
+    "scenes",
+    "led",
+    "rgb"
+  ],
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/mqtt-dmx-sequencer/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/mqtt-dmx-sequencer"
+}
