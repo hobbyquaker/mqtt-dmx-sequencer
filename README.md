@@ -1,9 +1,14 @@
 # mqtt-dmx-sequencer
 
-Control DMX devices via Art-Net by MQTT
+[![NPM version](https://badge.fury.io/js/mqtt-dmx-sequencer.svg)](http://badge.fury.io/js/mqtt-dmx-sequencer)
+[![Dependency Status](https://img.shields.io/gemnasium/hobbyquaker/mqtt-dmx-sequencer.svg?maxAge=2592000)](https://gemnasium.com/github.com/hobbyquaker/mqtt-dmx-sequencer)
+[![Build Status](https://travis-ci.org/hobbyquaker/mqtt-dmx-sequencer.svg?branch=master)](https://travis-ci.org/hobbyquaker/mqtt-dmx-sequencer)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![License][mit-badge]][mit-url]
 
-Contains a simple sequencer. Multiple scene-transitions and sequences can run simultaneously, but on one channel there
-can run only one transition at a time.
+> Control DMX devices via Art-Net by MQTT.
+
+Contains a sequencer. Multiple scene-transitions and sequences can run simultaneously.
 
 ## Installation
 
@@ -45,8 +50,13 @@ start a sequence or change options of a running sequence
 stop a running sequence
 
 
+#### dmx/set/sequence/all/stop
+
+stop all running sequences
+
 ## License
 
-MIT
+MIT © [Sebastian Raff](https://github.com/hobbyquaker)
 
-Copyright (c) 2015 Sebastian 'hobbyquaker' Raff <hq@ccu.io>
+[mit-badge]: https://img.shields.io/badge/License-MIT-blue.svg?style=flat
+[mit-url]: LICENSE

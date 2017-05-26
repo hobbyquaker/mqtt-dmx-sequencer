@@ -1,6 +1,6 @@
-var pkg = require('./package.json');
+var path = require('path');
 module.exports = require('yargs')
-    .usage(pkg.name + ' ' + pkg.version + '\n' + pkg.description + '\n\nUsage: $0 [options]')
+    .usage('Usage: $0 [options]')
 
     .describe('v', 'possible values: "error", "warn", "info", "debug"')
     .describe('a', 'artnet host address')
@@ -12,27 +12,27 @@ module.exports = require('yargs')
     .describe('h', 'show help')
 
     .alias({
-        'h': 'help',
-        'n': 'name',
-        'u': 'url',
-        'a': 'address',
-        'p': 'port',
-        'v': 'verbosity',
-        'j': 'scenes',
-        's': 'sequences'
+        h: 'help',
+        n: 'name',
+        u: 'url',
+        a: 'address',
+        p: 'port',
+        v: 'verbosity',
+        j: 'scenes',
+        s: 'sequences'
     })
 
     .default({
-        'u': 'mqtt://127.0.0.1',
-        'n': 'dmx',
-        'a': '255.255.255.255',
-        'p': 6454,
-        'v': 'info',
-        'j': __dirname + '/example-scenes.json',
-        's': __dirname + '/example-sequences.json'
+        u: 'mqtt://127.0.0.1',
+        n: 'dmx',
+        a: '255.255.255.255',
+        p: 6454,
+        v: 'info',
+        j: path.join(__dirname, '/example-scenes.json'),
+        s: path.join(__dirname, '/example-sequences.json')
     })
 
     .config('config')
-    .version(pkg.name + ' ' + pkg.version + '\n', 'version')
+    .version()
     .help('help')
     .argv;

@@ -29,6 +29,8 @@
   "led 1 yellow":     [null, 0, 0, 255],
   "led 1 red":        [null, 0, 255, 255],
   "led 1 blue":       [null, 255, 255, 0],
+  "led 1 bc2":       [null, 255, 160, 0],
+  "led 1 bc1":       [null, 255, 80, 0],
   "led 1 green":      [null, 255, 0, 255],
 
   "led 2 white":      [null, null, null, null, null, 0, 0, 0],
@@ -37,6 +39,8 @@
   "led 2 yellow":     [null, null, null, null, null, 0, 0, 255],
   "led 2 red":     [null, null, null, null, null, 0, 255, 255],
   "led 2 blue":     [null, null, null, null, null, 255, 255, 0],
+  "led 2 bc2":       [null, null, null, null, null, 255, 160, 0],
+  "led 2 bc1":       [null, null, null, null, null, 255, 80, 0],
   "led 2 green":    [null, null, null, null, null, 255, 0, 255],
 
   "led 3 white":     [null, null, null, null, null, null, null, null, null, 0, 0, 0],
@@ -45,6 +49,8 @@
   "led 3 yellow":     [null, null, null, null, null, null, null, null, null, 0, 0, 255],
   "led 3 red":     [null, null, null, null, null, null, null, null, null, 0, 255, 255],
   "led 3 blue":     [null, null, null, null, null, null, null, null, null, 255, 255, 0],
+  "led 3 bc2":       [null, null, null, null, null, null, null, null, null, 255, 160, 0],
+  "led 3 bc1":       [null, null, null, null, null, null, null, null, null, 255, 80, 0],
   "led 3 green":    [null, null, null, null, null, null, null, null, null, 255, 0, 255],
 
   "led 4 white":     [null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0],
@@ -53,6 +59,8 @@
   "led 4 yellow":     [null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 255],
   "led 4 red":     [null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 255, 255],
   "led 4 blue":     [null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 255, 0],
+  "led 4 bc2":       [null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 160, 0],
+  "led 4 bc1":       [null, null, null, null, null, null, null, null, null, null, null, null, null,  255, 80, 0],
   "led 4 green":    [null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 0, 255],
 
   "led 5 white":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0],
@@ -61,6 +69,8 @@
   "led 5 yellow":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 255],
   "led 5 red":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 255, 255],
   "led 5 blue":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 255, 0],
+  "led 5 bc2":       [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 160, 0],
+  "led 5 bc1":       [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 80, 0],
   "led 5 green":    [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 0, 255],
 
   "led 6 white":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 0],
@@ -69,5 +79,7 @@
   "led 6 yellow":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 0, 255],
   "led 6 red":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0, 255, 255],
   "led 6 blue":     [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 255, 0],
+  "led 6 bc2":       [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 160, 0],
+  "led 6 bc1":       [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 80, 0],
   "led 6 green":    [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 255, 0, 255]
 }
