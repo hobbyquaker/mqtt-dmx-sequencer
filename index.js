@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-var log = require('yalm');
-var Mqtt = require('mqtt');
-var Artnet = require('artnet');
-var config = require('./config.js');
-var pkg = require('./package.json');
+const log = require('yalm');
+const Mqtt = require('mqtt');
+const Artnet = require('artnet');
+const config = require('./config.js');
+const pkg = require('./package.json');
 
-var artnet = new Artnet({
+const artnet = new Artnet({
     host: config.address,
     port: config.port
 });
@@ -14,29 +14,31 @@ var artnet = new Artnet({
 log.setLevel(config.verbosity);
 log.info(pkg.name, pkg.version, 'starting');
 
-var scenes = require(config.scenes);
+const scenes = require(config.scenes);
 log.info('scenes loaded from', config.scenes);
-var sequences = require(config.sequences);
+const sequences = require(config.sequences);
 log.info('sequences loaded from', config.sequences);
 
 artnet.data[0] = [];
-var sequencer = require('./lib/sequencer.js')({
+
+// eslint-disable-next-line import/order
+const sequencer = require('scene-sequencer')({
     setter: artnet.set,
     data: artnet.data[0],
-    scenes: scenes,
-    sequences: sequences
+    scenes,
+    sequences
 });
 
-sequencer.on('transition-conflict', function (ch) {
+sequencer.on('transition-conflict', ch => {
     log.debug('transition conflict channel', ch);
 });
 
-var mqttConnected;
+let mqttConnected;
 
 log.info('mqtt trying to connect', config.url);
-var mqtt = Mqtt.connect(config.url, {will: {topic: config.name + '/connected', payload: '0'}});
+const mqtt = Mqtt.connect(config.url, {will: {topic: config.name + '/connected', payload: '0'}});
 
-mqtt.on('connect', function () {
+mqtt.on('connect', () => {
     mqttConnected = true;
     log.info('mqtt connected ' + config.url);
     mqtt.publish(config.name + '/connected', '2');
@@ -44,37 +46,37 @@ mqtt.on('connect', function () {
     mqtt.subscribe(config.name + '/set/#');
 });
 
-mqtt.on('close', function () {
+mqtt.on('close', () => {
     if (mqttConnected) {
         mqttConnected = false;
         log.info('mqtt closed ' + config.url);
     }
 });
 
-mqtt.on('error', function () {
+mqtt.on('error', () => {
     log.error('mqtt error ' + config.url);
 });
 
-process.on('SIGINT', function () {
+process.on('SIGINT', () => {
     log.info('got SIGINT. exiting.');
     process.exit(0);
 });
 
-process.on('SIGTERM', function () {
+process.on('SIGTERM', () => {
     log.info('got SIGTERM. exiting.');
     process.exit(0);
 });
 
-var runningSequences = {};
+const runningSequences = {};
 
-mqtt.on('message', function (topic, payload) {
+mqtt.on('message', (topic, payload) => {
     payload = payload.toString();
     log.debug('mqtt <', topic, payload);
-    var tpArr = topic.split('/');
-    var channel;
-    var scene;
-    var sequence;
-    var transition;
+    const tpArr = topic.split('/');
+    let channel;
+    let scene;
+    let sequence;
+    let transition;
     switch (tpArr[2]) {
         case 'channel':
             channel = parseInt(tpArr[3], 10);
@@ -99,7 +101,7 @@ mqtt.on('message', function (topic, payload) {
             if (tpArr[4] === 'stop' && runningSequences[sequence]) {
                 runningSequences[sequence].stop();
             } else if (tpArr[4] === 'stop' && sequence === 'all') {
-                Object.keys(runningSequences).forEach(function (s) {
+                Object.keys(runningSequences).forEach(s => {
                     runningSequences[s].stop();
                 });
             } else if (sequences[sequence]) {
@@ -114,13 +116,13 @@ mqtt.on('message', function (topic, payload) {
     }
 
     function newSequence(sequence, payload) {
-        var repeat = false;
-        var shuffle = false;
-        var speed = 1;
+        let repeat = false;
+        let shuffle = false;
+        let speed = 1;
 
         if (payload.indexOf('{') !== -1) {
             try {
-                var tmp = JSON.parse(payload);
+                const tmp = JSON.parse(payload);
                 repeat = tmp.repeat;
                 shuffle = tmp.shuffle;
                 speed = tmp.speed;
@@ -139,7 +141,7 @@ mqtt.on('message', function (topic, payload) {
         log.debug('newSequence', repeat, shuffle, speed);
         log.debug('mqtt >', config.name + '/status/sequence/' + sequence, '1');
         mqtt.publish(config.name + '/status/sequence/' + sequence, '1');
-        runningSequences[sequence] = sequencer.newSequence(sequence, repeat, shuffle, speed, function () {
+        runningSequences[sequence] = sequencer.newSequence(sequence, repeat, shuffle, speed, () => {
             log.debug('sequence end', sequence);
             log.debug('mqtt >', config.name + '/status/sequence/' + sequence, '0');
             mqtt.publish(config.name + '/status/sequence/' + sequence, '0');
@@ -147,4 +149,3 @@ mqtt.on('message', function (topic, payload) {
         });
     }
 });
-

@@ -1,4 +1,4 @@
-var path = require('path');
+const path = require('path');
 module.exports = require('yargs')
     .usage('Usage: $0 [options]')
 
@@ -31,8 +31,6 @@ module.exports = require('yargs')
         j: path.join(__dirname, '/example-scenes.json'),
         s: path.join(__dirname, '/example-sequences.json')
     })
-
-    .config('config')
     .version()
     .help('help')
     .argv;

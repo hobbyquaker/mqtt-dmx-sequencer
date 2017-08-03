@@ -8,15 +8,42 @@
 
 > Control DMX devices via Art-Net by MQTT.
 
-Contains a sequencer. Multiple scene-transitions and sequences can run simultaneously.
+This is the headless counterpart to the [MQTT DMX Controller](https://github.com/hobbyquaker/mqtt-dmx-controller). Uses 
+scenes and sequences created with - and exported from - the MQTT DMX Controller that can be controlled via MQTT. 
+
 
 ## Installation
 
-Node.js/npm needed.
+Node.js >= 6 needed.
 
 ```
 sudo npm install -g mqtt-dmx-sequencer
 mqtt-dmx-sequencer --help
+```
+
+## Usage
+
+``` 
+Usage: mqtt-dmx-sequencer [options]
+
+Options:
+  -v, --verbosity  possible values: "error", "warn", "info", "debug"
+                                                               [default: "info"]
+  -a, --address    artnet host address              [default: "255.255.255.255"]
+  -p, --port       artnet host port                              [default: 6454]
+  -n, --name       instance name. used as mqtt client id and as prefix for
+                   connected topic                              [default: "dmx"]
+  -j, --scenes     json file containing scene definitions              [default:
+         "/Users/basti/WebstormProjects/mqtt-dmx-sequencer/example-scenes.json"]
+  -s, --sequences  json file containing sequence definitions           [default:
+      "/Users/basti/WebstormProjects/mqtt-dmx-sequencer/example-sequences.json"]
+  -u, --url        mqtt broker url. See
+                   https://github.com/mqttjs/MQTT.js#connect-using-a-url
+                                                   [default: "mqtt://127.0.0.1"]
+  -h, --help       Show help                                           [boolean]
+  --version        Show version number                                 [boolean]
+
+
 ```
 
 ## MQTT Topics
