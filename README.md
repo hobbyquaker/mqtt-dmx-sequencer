@@ -1,5 +1,6 @@
 # mqtt-dmx-sequencer
 
+[![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg)](https://github.com/mqtt-smarthome/mqtt-smarthome)
 [![NPM version](https://badge.fury.io/js/mqtt-dmx-sequencer.svg)](http://badge.fury.io/js/mqtt-dmx-sequencer)
 [![Dependency Status](https://img.shields.io/gemnasium/hobbyquaker/mqtt-dmx-sequencer.svg?maxAge=2592000)](https://gemnasium.com/github.com/hobbyquaker/mqtt-dmx-sequencer)
 [![Build Status](https://travis-ci.org/hobbyquaker/mqtt-dmx-sequencer.svg?branch=master)](https://travis-ci.org/hobbyquaker/mqtt-dmx-sequencer)
